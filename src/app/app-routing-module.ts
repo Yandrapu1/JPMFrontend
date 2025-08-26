@@ -14,7 +14,8 @@ const routes: Routes = [
   { path: 'expense', component:Expense},
   
 
-  ]}
+  ]},
+  
 ];
 
 @NgModule({

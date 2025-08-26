@@ -9,9 +9,7 @@ import { HttpClient, HttpEventType } from '@angular/common/http';
   styleUrl: './expense.css'
 })
 export class Expense implements OnInit {
-onSubmit() {
-throw new Error('Method not implemented.');
-}
+
   expenseForm!: FormGroup;
   categories = [
     "Stationery", "Transport", "Office Equipment", "Travel", "Accommodation",
@@ -24,7 +22,7 @@ throw new Error('Method not implemented.');
   apiBaseUrl = 'http://localhost:4300/expenses';  // Adjust backend base URL
 
   constructor(private fb: FormBuilder, private http: HttpClient) {}
-
+   
   ngOnInit(): void {
     this.expenseForm = this.fb.group({
       employeeId: ['', Validators.required],
@@ -34,6 +32,20 @@ throw new Error('Method not implemented.');
       files: [null],  // For file inputs
       expenseDetails: this.fb.array([this.createExpenseDetail()])
     });
+      // Read the employee object from localStorage
+  const userJson = localStorage.getItem('user');  // or whichever key you use to store user
+  if (userJson) {
+    try {
+      const user = JSON.parse(userJson);
+      if (user && user.id) {
+        // Patch employeeId into the form so user doesn't need to enter manually
+        this.expenseForm.patchValue({ employeeId: user.id });
+      }
+    } catch (e) {
+      console.error('Failed to parse user from localStorage', e);
+    }
+  }
+
   }
 
   createExpenseDetail(): FormGroup {
