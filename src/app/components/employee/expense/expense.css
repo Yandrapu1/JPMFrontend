@@ -1,0 +1,109 @@
+/* General form layout */
+form {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Form labels and inputs */
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #333;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.6rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.2s ease-in-out;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #1976d2;
+  outline: none;
+  box-shadow: 0 0 4px rgba(25, 118, 210, 0.5);
+}
+
+/* Section divider (Expense Details) */
+hr {
+  margin: 1.5rem 0;
+  border: none;
+  border-top: 1px solid #eee;
+}
+
+h3 {
+  margin-bottom: 1rem;
+  color: #1976d2;
+}
+
+/* Buttons */
+button {
+  padding: 0.6rem 1.2rem;
+  margin: 0.4rem 0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+button[type="submit"] {
+  background: #1976d2;
+  color: #fff;
+  transition: background 0.3s ease;
+}
+
+button[type="submit"]:hover:not([disabled]) {
+  background: #135ba1;
+}
+
+button[type="submit"]:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+button[type="button"] {
+  background: #f44336;
+  color: white;
+  transition: background 0.3s ease;
+}
+
+button[type="button"]:hover {
+  background: #d32f2f;
+}
+
+/* Add button for new details */
+button.add-btn {
+  background: #4caf50;
+  color: #fff;
+  margin-top: 1rem;
+}
+
+button.add-btn:hover {
+  background: #388e3c;
+}
+
+/* Error messages */
+div.ng-invalid.ng-touched {
+  border-color: #f44336;
+}
+
+div.error-message,
+div.ng-invalid.ng-touched + div {
+  font-size: 0.85rem;
+  color: #f44336;
+  margin-top: -0.6rem;
+  margin-bottom: 0.8rem;
+}

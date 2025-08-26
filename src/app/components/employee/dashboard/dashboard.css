@@ -1,0 +1,163 @@
+/* Wrapper with padding and background */
+.dashboard-wrapper {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9fafb;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+/* Title */
+h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #3a3f58;
+  font-weight: 700;
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+}
+
+/* Cards base style */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* Total Spend specific */
+.total-spend {
+  text-align: center;
+  color: #5a4d9d;
+}
+
+.total-spend h3 {
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+.amount {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-top: 0.3rem;
+  letter-spacing: 0.05em;
+  color: #7451b5;
+}
+
+/* Claims summary grid */
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.summary-cards .card {
+  color: white;
+  padding: 1.5rem 1rem;
+  text-align: center;
+}
+
+.summary-cards .card h4 {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+}
+
+.summary-cards .card p {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* Status colors */
+.submitted { background: #1e88e5; }
+.review { background: #fb8c00; }
+.approved { background: #43a047; }
+.paid { background: #8e24aa; }
+
+/* Recent expenses */
+.recent-expenses h3 {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #3a3f58;
+}
+
+.recent-expenses table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 0.75rem;
+}
+
+.recent-expenses th,
+.recent-expenses td {
+  text-align: center;
+  padding: 0.75rem 1rem;
+}
+
+.recent-expenses th {
+  color: #6c757d;
+  font-weight: 600;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.recent-expenses tbody tr {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+  transition: background 0.3s ease;
+}
+
+.recent-expenses tbody tr:hover {
+  background: #f1f3f5;
+}
+
+.recent-expenses td span {
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: white;
+  display: inline-block;
+}
+
+/* Status badges */
+.paid, .paid span { background-color: #6a1b9a; }
+.approved, .approved span { background-color: #2e7d32; }
+.under\ review, .under-review span, .review, .review span { background-color: #ef6c00; }
+.submitted, .submitted span { background-color: #1976d2; }
+
+/* Quick navigation buttons */
+.quick-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.btn {
+  background-color: #5a4d9d;
+  color: white;
+  border: none;
+  padding: 0.85rem 1.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(90, 77, 157, 0.5);
+}
+
+.btn:hover,
+.btn.active {
+  background-color: #3f3277;
+  box-shadow: 0 6px 14px rgba(63, 50, 119, 0.8);
+}

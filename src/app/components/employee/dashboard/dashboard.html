@@ -1,0 +1,59 @@
+<div class="dashboard-wrapper">
+  <h2>Employee Dashboard</h2>
+
+  <!-- Total Spend Card -->
+  <div class="card total-spend">
+    <h3>Total Spends (This Month)</h3>
+    <p class="amount">₹ {{ totalSpends | number }}</p>
+  </div>
+
+  <!-- Claims Summary -->
+  <section class="summary-cards">
+    <div class="card submitted">
+      <h4>Submitted</h4>
+      <p>{{ claimsSummary.submitted }}</p>
+    </div>
+    <div class="card review">
+      <h4>Under Review</h4>
+      <p>{{ claimsSummary.underReview }}</p>
+    </div>
+    <div class="card approved">
+      <h4>Approved</h4>
+      <p>{{ claimsSummary.approved }}</p>
+    </div>
+    <div class="card paid">
+      <h4>Paid</h4>
+      <p>{{ claimsSummary.paid }}</p>
+    </div>
+  </section>
+
+  <!-- Recent Expenses Table -->
+  <section class="recent-expenses card">
+    <h3>Recent Expenses</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Amount</th>
+          <th>Status</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let exp of recentExpenses">
+          <td>{{ exp.type }}</td>
+          <td>₹ {{ exp.amount | number }}</td>
+          <td><span [ngClass]="exp.status.toLowerCase()">{{ exp.status }}</span></td>
+          <td>{{ exp.date | date: 'mediumDate' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Quick Navigation -->
+  <nav class="quick-nav">
+    <button class="btn" routerLink="/employee/expense" routerLinkActive="active">➕ Record New Expense</button>
+    <button class="btn" routerLink="/employee/empbooking" routerLinkActive="active">📦 Book Services</button>
+    <button class="btn" routerLink="/employee/emptrack" routerLinkActive="active">📋 Track My Claims</button>
+  </nav>
+</div>

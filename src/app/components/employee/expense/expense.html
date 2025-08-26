@@ -1,0 +1,76 @@
+<div class="container mt-4">
+  <div class="card shadow-lg p-4">
+    <h3 class="mb-4">Submit Expense</h3>
+   <form [formGroup]="expenseForm" (ngSubmit)="onSubmit()">
+
+  <!-- EmployeeId -->
+  <div>
+    <label>Employee ID</label>
+    <input type="text" formControlName="employeeId" />
+    <div *ngIf="expenseForm.get('employeeId')?.invalid && expenseForm.get('employeeId')?.touched">
+      Employee ID is required
+    </div>
+  </div>
+
+  <!-- Total Amount -->
+  <div>
+    <label>Total Amount</label>
+    <input type="number" formControlName="totalAmount" />
+    <div *ngIf="expenseForm.get('totalAmount')?.invalid && expenseForm.get('totalAmount')?.touched">
+      Total amount is required and must be ≥ 0
+    </div>
+  </div>
+
+  <!-- Note -->
+  <div>
+    <label>Note</label>
+    <textarea formControlName="note"></textarea>
+  </div>
+
+  <hr />
+
+  <!-- Expense Details -->
+  <div formArrayName="expenseDetails">
+    <div *ngFor="let detail of expenseDetails.controls; let i = index" [formGroupName]="i">
+      
+      <h3>Expense Detail {{ i + 1 }}</h3>
+
+      <label>Category</label>
+      <select formControlName="category">
+        <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
+      </select>
+
+      <label>Description</label>
+      <input type="text" formControlName="description"/>
+
+      <label>Vendor</label>
+      <input type="text" formControlName="vendorName"/>
+
+      <label>Location</label>
+      <input type="text" formControlName="location"/>
+
+      <label>Amount</label>
+      <input type="number" formControlName="amount" />
+      <div *ngIf="detail.get('amount')?.invalid && detail.get('amount')?.touched">
+        Amount is required and must be ≥ 1
+      </div>
+
+      <label>Payment Method</label>
+      <select formControlName="paymentMethod">
+        <option *ngFor="let m of paymentMethods" [value]="m">{{ m }}</option>
+      </select>
+
+      <button type="button" (click)="removeExpenseDetail(i)">❌ Remove</button>
+      <hr />
+    </div>
+  </div>
+
+  <button type="button" (click)="addExpenseDetail()">➕ Add More Expense Details</button>
+
+  <br /><br />
+  <button type="submit" [disabled]="expenseForm.invalid">Submit</button>
+</form>
+
+    
+  </div>
+</div>
